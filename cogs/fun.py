@@ -442,6 +442,9 @@ class Fun(commands.Cog):
             color=BLANK_COLOR,
         )
         embed.set_author(name=ctx.guild.name, icon_url=ctx.guild.icon.url if ctx.guild.icon else "")
+        role_ids = [985228543191548004, 1137129271769436340, 1137117556348567614]
+        if any(role.id in role_ids for role in ctx.author.roles):
+            embed.set_footer(text="If this is an emergency, please open a ticket.")
         brand_footer(embed)
         await ctx.send(embed=embed)
 
